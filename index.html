@@ -9,17 +9,24 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="firebase.js"></script>
+    <script src="script.js"></script>
+    <script src="header.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js" async
         integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx"
         crossorigin="anonymous">
     </script>
 
-
 </head>
 
 <body>
 
-    <div class="bg-gray-100 w-full">
+    <div class="bg-white w-full">
 
         <div class="header h-16 bg-gray-900 flex items-center">
             
@@ -54,7 +61,7 @@
                 <a href="cart.html">
                     <div class="cart-icon relative h-10 w-10 bg-yellow-500 flex items-center justify-center rounded-xl hover:bg-yellow-600">
                         <div class="cart-items-number w-4 h-4 absolute -top-1 -right-1 rounded-full bg-white text-gray-800 text-xs font-bold flex items-center justify-center">
-                            1
+                            
                         </div>
                         <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -73,7 +80,7 @@
 
         <div class="main h-screen flex">
 
-            <div class="main-sidebar w-1/5 bg-gray-900 border-t-2 border-gray-700 p-6">
+            <div class="main-sidebar hidden md:block w-1/5 bg-gray-900 border-t-2 border-gray-700 p-6">
 
                 <div class="sidebar-categories">
                     <div class="sidebar-main-category text-yellow-500 cursor-pointer flex font-bold p-2 bg-gray-700 rounded-lg">
@@ -133,11 +140,11 @@
 
             </div>
 
-            <div class="main-section flex-1 p-6">
+            <div class="main-section flex-1 p-6 bg-gray-100">
 
                 <div class="main-section-banner h-44 rounded-lg flex items-end">
-                    <div class="button bg-white w-36 h-10 rounded-full flex justify-center items-center m-4 cursor-pointer">
-                        <h4 class="text-bold text-yellow-500">Browse Products</h4>
+                    <div class="button bg-white w-36 h-10 rounded-full flex justify-center items-center m-4 cursor-pointer hover:bg-gray-100">
+                        <h4 class="text-bold text-yellow-500 ">Browse Products</h4>
                     </div>
                 </div>
 
@@ -150,7 +157,7 @@
                         </svg>
                     </h1>
 
-                    <div class="categories mt-5 flex">
+                    <div class="categories mt-5 flex flex-wrap">
 
                         <div class="icon-desktop h-20 w-20 bg-white rounded-xl flex justify-center items-center">
                             <svg class="h-12 w-12 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -210,146 +217,6 @@
                     <h1 class="text-2xl font-bold text-gray-700 mb-5">Hot Deals 🔥</h1>
 
                     <div class="main-section-products flex">
-
-                        <div class="main-product-nintendo">
-
-                            <div class="product-image w-48 h-36 bg-white rounded-lg p-4">
-                                <img class="w-full h-full object-contain" src="https://scale.coolshop-cdn.com/product-media.coolshop-cdn.com/AG7U6H/0cd1429b745b4b06b617d0ea50a19997.jpg/f/nintendo-switch-console-with-neon-red-neon-blue-joy-con-upgraded-version.jpg" alt="nintendo-switch">
-                            </div>
-
-                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
-                                Nintendo Switch(2019)
-                            </div>
-
-                            <div class="product-make text-green-700 font-bold">
-                                Nintendo
-                            </div>
-
-                            <div class="product-rating text-yellow-300 font-bold my-1">
-                                ⭐⭐⭐⭐⭐ 4.5
-                            </div>
-
-                            <div class="product-price font-bold text-gray-700 text-lg">
-                                $290
-                            </div>
-
-                            <div class="add-to-cart w-3/5 py-1 bg-yellow-500 text-white hover:bg-yellow-600 rounded flex justify-center items-center">
-                                Add to cart
-                            </div>
-
-                        </div>
-                        
-                        <div class="main-product-iphone ml-6">
-
-                            <div class="product-image w-48 h-36 bg-white rounded-lg p-4">
-                                <img class="w-full h-full object-contain" src="https://assets.swappie.com/swappie-product-iphone-12-pro-max-silver.png" alt="iPhone">
-                            </div>
-
-                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
-                                Apple iPhone 12 Pro Max
-                            </div>
-
-                            <div class="product-make text-green-700 font-bold">
-                                Apple
-                            </div>
-
-                            <div class="product-rating text-yellow-300 font-bold my-1">
-                                ⭐⭐⭐⭐⭐ 4.8
-                            </div>
-
-                            <div class="product-price font-bold text-gray-700 text-lg">
-                                $1099
-                            </div>
-
-                            <div class="add-to-cart w-3/5 py-1 bg-yellow-500 text-white hover:bg-yellow-600 rounded flex justify-center items-center">
-                                Add to cart
-                            </div>
-
-                        </div>
-                        
-                        <div class="main-product-macbook ml-6">
-
-                            <div class="product-image w-48 h-36 bg-white rounded-lg p-4">
-                                <img class="w-full h-full object-contain" src="https://onx.dk/wp-content/uploads/2020/11/macbook-pro-no-bezel-mockup.jpg" alt="macBook">
-                            </div>
-
-                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
-                                Apple MacBook Pro 2021 13,3
-                            </div>
-
-                            <div class="product-make text-green-700 font-bold">
-                                Apple
-                            </div>
-
-                            <div class="product-rating text-yellow-300 font-bold my-1">
-                                ⭐⭐⭐⭐⭐ 4.8
-                            </div>
-
-                            <div class="product-price font-bold text-gray-700 text-lg">
-                                $1149
-                            </div>
-
-                            <div class="add-to-cart w-3/5 py-1 bg-yellow-500 text-white hover:bg-yellow-600 rounded flex justify-center items-center">
-                                Add to cart
-                            </div>
-
-                        </div>
-                        
-                        <div class="main-product-camera ml-6">
-
-                            <div class="product-image w-48 h-36 bg-white rounded-lg p-4">
-                                <img class="w-full h-full object-contain" src="https://m.media-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg" alt="canon-camera">
-                            </div>
-
-                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
-                                Canon EOS 1500D Digital SLR Camera
-                            </div>
-
-                            <div class="product-make text-green-700 font-bold">
-                                Canon
-                            </div>
-
-                            <div class="product-rating text-yellow-300 font-bold my-1">
-                                ⭐⭐⭐⭐⭐ 4.9
-                            </div>
-
-                            <div class="product-price font-bold text-gray-700 text-lg">
-                                $420
-                            </div>
-
-                            <div class="add-to-cart w-3/5 py-1 bg-yellow-500 text-white hover:bg-yellow-600 rounded flex justify-center items-center">
-                                Add to cart
-                            </div>
-
-                        </div>
-
-                        <div class="main-product-tv ml-6">
-
-                            <div class="product-image w-48 h-36 bg-white rounded-lg p-4">
-                                <img class="w-full h-full object-contain" src="https://www.flatpanels.dk/billeder/panasoniccs520-1l.jpg" alt="panasonicTV">
-                            </div>
-
-                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
-                                Panasonic Smart TV TX-55CXC725
-                            </div>
-
-                            <div class="product-make text-green-700 font-bold">
-                                Panasonic
-                            </div>
-
-                            <div class="product-rating text-yellow-300 font-bold my-1">
-                                ⭐⭐⭐⭐⭐ 4.6
-                            </div>
-
-                            <div class="product-price font-bold text-gray-700 text-lg">
-                                $635
-                            </div>
-
-                            <div class="add-to-cart w-3/5 py-1 bg-yellow-500 text-white hover:bg-yellow-600 rounded flex justify-center items-center">
-                                Add to cart
-                            </div>
-
-                        </div>
 
                     </div>
                 </div>
